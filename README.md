@@ -3,7 +3,7 @@ Store everything that I learned !!!
 Download Docker!!
 Download Steps in Amazon ec2 Instance:
 #!/bin/bash
-curl get.docker.com | bash
+curl https://get.docker.com/ | bash
 
 Docker Commands:
 docker pull nginx
