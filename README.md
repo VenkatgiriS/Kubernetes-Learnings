@@ -40,6 +40,6 @@ docker rename <contId> <newname>
 
 ---------
 docker build:
-docker build -t venkatgiri/newnginx:v1 <path>
+docker build -t venkatgiri/<new image name>:v1 <path>
 
 
