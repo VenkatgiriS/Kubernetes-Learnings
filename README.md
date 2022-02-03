@@ -7,10 +7,11 @@ curl https://get.docker.com/ | bash
 
 Docker Commands:
 docker pull nginx
-docker run --rm -dit --name nginx <contName> -p 9000:80 nginx
+docker run --rm -dit --name <contName> -p 9000:80 nginx
 docker ps
 docker ps -a
 docker images
+docker kill $(docker ps -aq)
 docker rmi <Imagename>
 docker rm <contName>
 docker exec -it <contName> bash
@@ -29,10 +30,12 @@ docker push:
 docker push venkatgiri/k8s_practice
 
 Image tagging:
-docker image tag a8020895bfb5 venkatgiri/k8s_practice
+docker image tag <imageid> venkatgiri/k8s_practice
 
 Docker image building out of container:
 docker commit <contName/Id>
 
 Rename container:
 docker rename <contId> <newname>
+
+
