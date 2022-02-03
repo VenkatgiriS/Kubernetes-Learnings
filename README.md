@@ -38,4 +38,8 @@ docker commit <contName/Id>
 Rename container:
 docker rename <contId> <newname>
 
+---------
+docker build:
+docker build -t venkatgiri/newnginx:v1 <path>
+
 
