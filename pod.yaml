@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    env: prod
+    app: royale
+    name: k8's
+spec:
+  containers:
+    - name: venkat
+      image: nginx
+    restartPolicy: Always
