@@ -1,0 +1,44 @@
+Networks:
+ifconfig
+Netstat Command:
+
+netstat -a | grep -i <port>
+
+--------------
+Replacing a word in a file in 'xth' occurance of each line(replacing red with blue):  
+sed 's/red/blue/x' <filename>
+
+Replacing a word in a file Globally (replacing red with blue): sed 's/red/blue/g' <filename>
+
+display first 10 lines of a file : head <filename>
+
+display first 20 lines of a file : head -n 20 <filename>
+
+to see the content in specific line numbers(b/w 100 to 108 lines): sed -n '100,108p' <filename>
+
+to see the content in specific line number : sed -n '108p' <filename>
+
+display last 10 lines of a file : tail <filename>
+
+display last 20 lines of a file : last -n 20 <filename>
+
+for continous files ,to see the last 10 lines: tail -f <filename>
+
+page by page display : more <filename>   ----> and to display the next page "cntrl+f"
+this works only in forward direction
+
+to display page in forward and backward : less <filename>  -->forward(cntrl+f)   and backward(cntrl+v)
+
+sorting: sort <filename>  or cat <filename> | sort
+
+reverse sort : sort -r <filename>  or cat <filename> | sort -r
+
+translate lowercase with uppercase : tr [a-z][A-Z]
+
+For viewing ,sorting and translating together : cat <filename> | sort | tr [a-z][A-Z]
+
+Searching a file with keyword : grep <keyword> <filename>
+
+Searching a file with keyword and ignoring case: grep -i <keyword> <filename>
+
+
