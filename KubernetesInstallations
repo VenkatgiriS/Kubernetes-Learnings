@@ -5,10 +5,24 @@ Deploy Management server(min of t2.micro)
 KOPS Binary (k8s cluster managemet like cluster creation, update etc.,) And kubectl (cluster operations like pods creation, deployments etc.,  )
 Kops download link found here : https://github.com/kubernetes/kops/releases
 Once downloaded , move to bin directory and give 700 permission.
-Kuberctl download link:curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+Kubectl download link:curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 movie kubectl to bin folder and give execute permissions.
 SSH Public and private created .KOPS will assign the ssh keys and manage the cluster with the ssh access.
 Dowload aws cli and create iam role to create cluster in aws.
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
+
+watch -n 1 kubectl get nodes
+
+Create cluster:
+kops create cluster --name=venkatgiri.xyz --state=s3://venkatgiri.xyz --zones=us-east-1a --node-count=2 --node-size=t2.micro --master-size=t2.small --master-volume-size 20 --node-volume-size 10 --dns-zone=venkatgiri.xyz --yes
+
+kops get ig --name venkatgiri.xyz --state s3://venkatgiri.xyz
+
+kops get cluster --state s3://venkatgiri.xyz
+
+kubectl get pods -A
+
+kops delete cluster --name=venkatgiri.xyz --state s3://venkatgiri.xyz --yes
+
