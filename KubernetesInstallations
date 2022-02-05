@@ -1,0 +1,14 @@
+Buy a Domain in Godaddy.
+Create s3 bucket used to store the authentication data(ssl certs and etc.,).
+Open route53 and update the nameservers from route53 in Godaddy.
+Deploy Management server(min of t2.micro)
+KOPS Binary (k8s cluster managemet like cluster creation, update etc.,) And kubectl (cluster operations like pods creation, deployments etc.,  )
+Kops download link found here : https://github.com/kubernetes/kops/releases
+Once downloaded , move to bin directory and give 700 permission.
+Kuberctl download link:curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+movie kubectl to bin folder and give execute permissions.
+SSH Public and private created .KOPS will assign the ssh keys and manage the cluster with the ssh access.
+Dowload aws cli and create iam role to create cluster in aws.
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
