@@ -50,4 +50,37 @@ docker build -t venkatgiri/<new image name>:v1 <path>
 Network:
 docker network ls 
 
+------------
+kops create cluster --name=venkatgiri.xyz --state=s3://venkatgiri.xyz --zones=us-east-1a --node-count=2 --node-size=t2.micro --master-size=t2.small --master-volume-size 20 --node-volume-size 10 --dns-zone=venkatgiri.xyz --yes
+
+kops get cluster --state s3://venkatgiri.xyz
+kops get ig --name venkatgiri.xyz --state s3://venkatgiri.xyz
+kops edit ig --name=venkatgiri.xyz master-us-east-1a --state s3://venkatgiri.xyz
+kops edit ig --name=venkatgiri.xyz nodes --state s3://venkatgiri.xyz
+kops update cluster --name venkatgiri.xyz --yes --state  s3://venkatgiri.xyz
+kops rolling-update cluster --cloudonly --yes
+kops rolling-update cluster  --name venkatgiri.xyz --yes --state  s3://venkatgiri.xyz
+kops delete cluster --name=devopsk8s.xyz --state s3://devopsk8s.xyz --yes
+--------------
+aws credentials location in linux:
+/root/.aws
+
+kops export (env)
+export NAME=venkatgiri.xyz
+export KOPS_STATE_STORE=s3://venkatgiri.xyz
+alias ku='kubectl'
+
+kops get cluster -o yaml
+
+--------
+usage of tmux for multiple tabs in terminal:
+tmux
+control + b
+shift + %
+--------
+kubectl asking username and pwd:
+kops update cluster ${NAME} --yes --state ${KOPS_STATE_STORE} --admin
+
+
+
 
