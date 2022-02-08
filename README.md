@@ -57,10 +57,12 @@ kops get cluster --state s3://venkatgiri.xyz
 kops get ig --name venkatgiri.xyz --state s3://venkatgiri.xyz
 kops edit ig --name=venkatgiri.xyz master-us-east-1a --state s3://venkatgiri.xyz
 kops edit ig --name=venkatgiri.xyz nodes --state s3://venkatgiri.xyz
+kops edit ig nodes
 kops update cluster --name venkatgiri.xyz --yes --state  s3://venkatgiri.xyz
 kops rolling-update cluster --cloudonly --yes
 kops rolling-update cluster  --name venkatgiri.xyz --yes --state  s3://venkatgiri.xyz
-kops delete cluster --name=devopsk8s.xyz --state s3://devopsk8s.xyz --yes
+kops delete cluster --name=venkatgiri.xyz --state s3://venkatgiri.xyz --yes
+
 --------------
 aws credentials location in linux:
 /root/.aws
@@ -80,6 +82,17 @@ shift + %
 --------
 kubectl asking username and pwd:
 kops update cluster ${NAME} --yes --state ${KOPS_STATE_STORE} --admin
+
+Login to master node:
+ssh -i ~/.ssh/id_rsa ubuntu@api.venkatgiri.xyz
+
+------
+script to ease the add cluster 
+ #!bin/bash
+
+kops edit ig --name=venkatgiri.xyz master-us-east-1a --state s3://venkatgiri.xyz && kops edit ig --name=venkatgiri.xyz nodes --state s3://venkatgiri.xyz &&  kops update cluster --name venkatgiri.xyz --yes --state  s3://venkatgiri.xyz
+
+
 
 
 
